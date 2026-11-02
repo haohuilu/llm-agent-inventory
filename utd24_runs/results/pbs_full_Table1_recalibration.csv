@@ -1,0 +1,25 @@
+model,method,cost_vs_saa,coverage,min_group_cov,max_group_gap
+claude-haiku-5-5,SAA (τ-quantile of history),1.0,0.946,0.9,0.092
+claude-haiku-5-5,"agent, raw",0.731,0.892,0.808,0.167
+claude-haiku-5-5,agent + pooled recal.,0.817,0.942,0.892,0.1
+claude-haiku-5-5,agent + per-group recal.,0.905,0.921,0.842,0.158
+gemma4,SAA (τ-quantile of history),1.0,0.946,0.9,0.092
+gemma4,"agent, raw",0.7,0.9,0.85,0.1
+gemma4,agent + pooled recal.,0.824,0.962,0.942,0.042
+gemma4,agent + per-group recal.,0.902,0.933,0.867,0.133
+gpt-6-luna,SAA (τ-quantile of history),1.0,0.946,0.9,0.092
+gpt-6-luna,"agent, raw",0.782,0.738,0.65,0.175
+gpt-6-luna,agent + pooled recal.,0.763,0.908,0.842,0.133
+gpt-6-luna,agent + per-group recal.,0.92,0.917,0.842,0.15
+llama3.1:8b,SAA (τ-quantile of history),1.0,0.946,0.9,0.092
+llama3.1:8b,"agent, raw",0.792,0.842,0.775,0.133
+llama3.1:8b,agent + pooled recal.,0.951,0.975,0.967,0.017
+llama3.1:8b,agent + per-group recal.,0.996,0.929,0.867,0.125
+phi4-mini,SAA (τ-quantile of history),1.0,0.946,0.9,0.092
+phi4-mini,"agent, raw",0.782,0.858,0.825,0.067
+phi4-mini,agent + pooled recal.,0.897,0.967,0.95,0.033
+phi4-mini,agent + per-group recal.,0.923,0.929,0.867,0.125
+qwen2.5:7b-instruct,SAA (τ-quantile of history),1.0,0.946,0.9,0.092
+qwen2.5:7b-instruct,"agent, raw",0.758,0.779,0.717,0.125
+qwen2.5:7b-instruct,agent + pooled recal.,0.817,0.962,0.933,0.058
+qwen2.5:7b-instruct,agent + per-group recal.,0.877,0.938,0.883,0.108

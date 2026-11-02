@@ -1,0 +1,8 @@
+.env
+__pycache__/
+*.pyc
+.DS_Store
+utd24_runs/data/*.csv
+!utd24_runs/data/freshretail_panel.csv
+!utd24_runs/data/practice_groups_imd.csv
+utd24_runs/results/*.png

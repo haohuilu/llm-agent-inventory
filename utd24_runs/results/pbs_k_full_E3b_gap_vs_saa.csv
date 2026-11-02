@@ -1,0 +1,7 @@
+model,gap_raw,gap_saa,gap_rel,worst_group_raw,worst_group_rel,rel_concessional,rel_general
+claude-haiku-5-5,0.158,0.092,0.067,general,general,-0.008,-0.075
+gemma4,0.125,0.092,0.033,general,general,-0.117,-0.15
+gpt-6-luna,0.175,0.092,0.083,general,general,-0.175,-0.258
+llama3.1:8b,0.225,0.092,0.133,general,general,-0.033,-0.167
+phi4-mini,0.067,0.092,0.025,general,concessional,-0.083,-0.058
+qwen2.5:7b-instruct,0.075,0.092,0.017,general,concessional,-0.133,-0.117

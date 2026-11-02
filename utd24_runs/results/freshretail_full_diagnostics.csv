@@ -1,0 +1,7 @@
+model,parse_fail,tool_use,order_over_mean,order_over_qopt,stated_conf,coverage_basic,coverage_informed,coverage_agentic,cost_vs_saa_basic,cost_vs_saa_informed,cost_vs_saa_agentic,magnitude_err_basic,magnitude_err_informed,magnitude_err_agentic
+claude-haiku-5-5,0.003,0.023,1.525,1.0,0.9,0.823,0.81,0.824,0.94,0.967,0.92,0.064,0.063,0.07
+gemma4,0.0,1.0,1.034,0.713,0.5,0.514,0.648,0.634,2.064,1.462,1.376,0.035,0.035,0.035
+gpt-6-luna,0.0,0.044,1.193,0.795,0.6,0.592,0.718,0.599,1.327,1.034,1.502,0.028,0.042,0.028
+llama3.1:8b,0.0,0.98,1.438,0.992,0.65,0.732,0.669,0.592,1.243,1.368,1.702,0.035,0.035,0.028
+phi4-mini,0.0,0.752,1.377,0.932,0.75,0.704,0.697,0.669,1.186,1.258,1.345,0.056,0.056,0.035
+qwen2.5:7b-instruct,0.0,0.416,1.182,0.804,0.7,0.627,0.62,0.592,1.438,1.345,1.46,0.035,0.042,0.035

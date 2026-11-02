@@ -1,0 +1,7 @@
+model,gap_raw,gap_saa,gap_rel,worst_group_raw,worst_group_rel,rel_city_0,rel_city_12,rel_city_16,rel_city_3,rel_city_6
+claude-haiku-5-5,0.264,0.27,0.083,city_12,city_0,0.0,0.0,0.083,0.0,0.0
+gemma4,0.271,0.27,0.083,city_12,city_6,-0.194,-0.15,-0.139,-0.143,-0.222
+gpt-6-luna,0.286,0.27,0.047,city_12,city_0,-0.226,-0.2,-0.194,-0.179,-0.222
+llama3.1:8b,0.296,0.27,0.102,city_16,city_16,-0.226,-0.15,-0.25,-0.25,-0.148
+phi4-mini,0.307,0.27,0.138,city_12,city_0,-0.194,-0.15,-0.056,-0.107,-0.185
+qwen2.5:7b-instruct,0.369,0.27,0.128,city_16,city_16,-0.194,-0.15,-0.278,-0.179,-0.222

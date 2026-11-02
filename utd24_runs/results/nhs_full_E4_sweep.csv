@@ -1,0 +1,145 @@
+k_frac,policy,cost_vs_saa,coverage,min_group_cov,group_gap,auroc_risk,auroc_stated,model
+0.0,random,0.641,0.943,0.917,0.05,0.415,0.589,claude-haiku-5-5
+0.0,lowest stated confidence,0.641,0.943,0.917,0.05,0.415,0.589,claude-haiku-5-5
+0.0,recalibrated risk,0.641,0.943,0.917,0.05,0.415,0.589,claude-haiku-5-5
+0.0,recalibrated risk + fair share,0.641,0.943,0.917,0.05,0.415,0.589,claude-haiku-5-5
+0.05,random,0.737,0.927,0.883,0.083,0.415,0.589,claude-haiku-5-5
+0.05,lowest stated confidence,0.803,0.927,0.867,0.1,0.415,0.589,claude-haiku-5-5
+0.05,recalibrated risk,0.729,0.937,0.883,0.083,0.415,0.589,claude-haiku-5-5
+0.05,recalibrated risk + fair share,0.729,0.937,0.883,0.083,0.415,0.589,claude-haiku-5-5
+0.1,random,0.666,0.917,0.883,0.067,0.415,0.589,claude-haiku-5-5
+0.1,lowest stated confidence,0.851,0.917,0.817,0.15,0.415,0.589,claude-haiku-5-5
+0.1,recalibrated risk,0.767,0.93,0.867,0.1,0.415,0.589,claude-haiku-5-5
+0.1,recalibrated risk + fair share,0.767,0.93,0.867,0.1,0.415,0.589,claude-haiku-5-5
+0.2,random,0.799,0.907,0.867,0.067,0.415,0.589,claude-haiku-5-5
+0.2,lowest stated confidence,0.945,0.887,0.767,0.167,0.415,0.589,claude-haiku-5-5
+0.2,recalibrated risk,0.849,0.923,0.867,0.1,0.415,0.589,claude-haiku-5-5
+0.2,recalibrated risk + fair share,0.796,0.927,0.867,0.1,0.415,0.589,claude-haiku-5-5
+0.3,random,0.869,0.87,0.767,0.2,0.415,0.589,claude-haiku-5-5
+0.3,lowest stated confidence,0.992,0.873,0.75,0.183,0.415,0.589,claude-haiku-5-5
+0.3,recalibrated risk,0.868,0.903,0.833,0.133,0.415,0.589,claude-haiku-5-5
+0.3,recalibrated risk + fair share,0.868,0.903,0.833,0.133,0.415,0.589,claude-haiku-5-5
+0.5,random,1.048,0.837,0.7,0.2,0.415,0.589,claude-haiku-5-5
+0.5,lowest stated confidence,1.122,0.827,0.65,0.267,0.415,0.589,claude-haiku-5-5
+0.5,recalibrated risk,0.971,0.86,0.75,0.217,0.415,0.589,claude-haiku-5-5
+0.5,recalibrated risk + fair share,0.971,0.86,0.75,0.217,0.415,0.589,claude-haiku-5-5
+0.0,random,0.97,0.803,0.683,0.2,0.463,0.325,gemma4
+0.0,lowest stated confidence,0.97,0.803,0.683,0.2,0.463,0.325,gemma4
+0.0,recalibrated risk,0.97,0.803,0.683,0.2,0.463,0.325,gemma4
+0.0,recalibrated risk + fair share,0.97,0.803,0.683,0.2,0.463,0.325,gemma4
+0.05,random,1.043,0.797,0.667,0.217,0.463,0.325,gemma4
+0.05,lowest stated confidence,0.973,0.807,0.683,0.217,0.463,0.325,gemma4
+0.05,recalibrated risk,0.958,0.81,0.683,0.217,0.463,0.325,gemma4
+0.05,recalibrated risk + fair share,0.958,0.81,0.683,0.217,0.463,0.325,gemma4
+0.1,random,1.009,0.787,0.65,0.217,0.463,0.325,gemma4
+0.1,lowest stated confidence,0.977,0.807,0.683,0.217,0.463,0.325,gemma4
+0.1,recalibrated risk,0.975,0.81,0.683,0.217,0.463,0.325,gemma4
+0.1,recalibrated risk + fair share,0.975,0.81,0.683,0.217,0.463,0.325,gemma4
+0.2,random,1.093,0.8,0.683,0.217,0.463,0.325,gemma4
+0.2,lowest stated confidence,1.039,0.797,0.633,0.267,0.463,0.325,gemma4
+0.2,recalibrated risk,0.997,0.817,0.683,0.217,0.463,0.325,gemma4
+0.2,recalibrated risk + fair share,0.999,0.817,0.683,0.217,0.463,0.325,gemma4
+0.3,random,1.098,0.78,0.617,0.267,0.463,0.325,gemma4
+0.3,lowest stated confidence,1.053,0.797,0.633,0.267,0.463,0.325,gemma4
+0.3,recalibrated risk,1.035,0.813,0.683,0.217,0.463,0.325,gemma4
+0.3,recalibrated risk + fair share,1.035,0.813,0.683,0.217,0.463,0.325,gemma4
+0.5,random,1.268,0.777,0.583,0.3,0.463,0.325,gemma4
+0.5,lowest stated confidence,1.072,0.8,0.633,0.267,0.463,0.325,gemma4
+0.5,recalibrated risk,1.066,0.8,0.667,0.233,0.463,0.325,gemma4
+0.5,recalibrated risk + fair share,1.066,0.8,0.667,0.233,0.463,0.325,gemma4
+0.0,random,0.674,0.817,0.7,0.2,0.426,0.524,gpt-6-luna
+0.0,lowest stated confidence,0.674,0.817,0.7,0.2,0.426,0.524,gpt-6-luna
+0.0,recalibrated risk,0.674,0.817,0.7,0.2,0.426,0.524,gpt-6-luna
+0.0,recalibrated risk + fair share,0.674,0.817,0.7,0.2,0.426,0.524,gpt-6-luna
+0.05,random,0.772,0.803,0.667,0.233,0.426,0.524,gpt-6-luna
+0.05,lowest stated confidence,0.688,0.817,0.7,0.2,0.426,0.524,gpt-6-luna
+0.05,recalibrated risk,0.681,0.823,0.7,0.217,0.426,0.524,gpt-6-luna
+0.05,recalibrated risk + fair share,0.681,0.823,0.7,0.217,0.426,0.524,gpt-6-luna
+0.1,random,0.708,0.8,0.667,0.217,0.426,0.524,gpt-6-luna
+0.1,lowest stated confidence,0.697,0.823,0.7,0.2,0.426,0.524,gpt-6-luna
+0.1,recalibrated risk,0.689,0.833,0.717,0.2,0.426,0.524,gpt-6-luna
+0.1,recalibrated risk + fair share,0.689,0.833,0.717,0.2,0.426,0.524,gpt-6-luna
+0.2,random,0.847,0.817,0.733,0.15,0.426,0.524,gpt-6-luna
+0.2,lowest stated confidence,0.722,0.827,0.717,0.2,0.426,0.524,gpt-6-luna
+0.2,recalibrated risk,0.792,0.833,0.7,0.217,0.426,0.524,gpt-6-luna
+0.2,recalibrated risk + fair share,0.777,0.837,0.7,0.217,0.426,0.524,gpt-6-luna
+0.3,random,0.88,0.773,0.617,0.283,0.426,0.524,gpt-6-luna
+0.3,lowest stated confidence,0.782,0.823,0.7,0.217,0.426,0.524,gpt-6-luna
+0.3,recalibrated risk,0.823,0.84,0.717,0.2,0.426,0.524,gpt-6-luna
+0.3,recalibrated risk + fair share,0.826,0.84,0.717,0.2,0.426,0.524,gpt-6-luna
+0.5,random,1.107,0.77,0.583,0.283,0.426,0.524,gpt-6-luna
+0.5,lowest stated confidence,0.938,0.797,0.617,0.3,0.426,0.524,gpt-6-luna
+0.5,recalibrated risk,0.867,0.843,0.733,0.183,0.426,0.524,gpt-6-luna
+0.5,recalibrated risk + fair share,0.867,0.843,0.733,0.183,0.426,0.524,gpt-6-luna
+0.0,random,1.476,0.713,0.633,0.117,0.518,0.422,llama3.1:8b
+0.0,lowest stated confidence,1.476,0.713,0.633,0.117,0.518,0.422,llama3.1:8b
+0.0,recalibrated risk,1.476,0.713,0.633,0.117,0.518,0.422,llama3.1:8b
+0.0,recalibrated risk + fair share,1.476,0.713,0.633,0.117,0.518,0.422,llama3.1:8b
+0.05,random,1.512,0.707,0.617,0.133,0.518,0.422,llama3.1:8b
+0.05,lowest stated confidence,1.478,0.713,0.633,0.117,0.518,0.422,llama3.1:8b
+0.05,recalibrated risk,1.331,0.72,0.633,0.133,0.518,0.422,llama3.1:8b
+0.05,recalibrated risk + fair share,1.331,0.72,0.633,0.133,0.518,0.422,llama3.1:8b
+0.1,random,1.498,0.71,0.6,0.167,0.518,0.422,llama3.1:8b
+0.1,lowest stated confidence,1.464,0.717,0.633,0.133,0.518,0.422,llama3.1:8b
+0.1,recalibrated risk,1.32,0.73,0.633,0.15,0.518,0.422,llama3.1:8b
+0.1,recalibrated risk + fair share,1.32,0.73,0.633,0.15,0.518,0.422,llama3.1:8b
+0.2,random,1.569,0.727,0.633,0.15,0.518,0.422,llama3.1:8b
+0.2,lowest stated confidence,1.399,0.727,0.633,0.167,0.518,0.422,llama3.1:8b
+0.2,recalibrated risk,1.299,0.743,0.633,0.167,0.518,0.422,llama3.1:8b
+0.2,recalibrated risk + fair share,1.299,0.743,0.633,0.167,0.518,0.422,llama3.1:8b
+0.3,random,1.455,0.713,0.583,0.2,0.518,0.422,llama3.1:8b
+0.3,lowest stated confidence,1.445,0.723,0.633,0.167,0.518,0.422,llama3.1:8b
+0.3,recalibrated risk,1.286,0.747,0.633,0.167,0.518,0.422,llama3.1:8b
+0.3,recalibrated risk + fair share,1.286,0.747,0.633,0.167,0.518,0.422,llama3.1:8b
+0.5,random,1.541,0.733,0.55,0.283,0.518,0.422,llama3.1:8b
+0.5,lowest stated confidence,1.435,0.727,0.617,0.183,0.518,0.422,llama3.1:8b
+0.5,recalibrated risk,1.297,0.753,0.633,0.2,0.518,0.422,llama3.1:8b
+0.5,recalibrated risk + fair share,1.297,0.753,0.633,0.2,0.518,0.422,llama3.1:8b
+0.0,random,1.725,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.0,lowest stated confidence,1.725,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.0,recalibrated risk,1.725,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.0,recalibrated risk + fair share,1.725,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.05,random,1.712,0.733,0.55,0.283,0.62,0.384,phi4-mini
+0.05,lowest stated confidence,1.725,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.05,recalibrated risk,1.587,0.743,0.55,0.3,0.62,0.384,phi4-mini
+0.05,recalibrated risk + fair share,1.587,0.743,0.55,0.3,0.62,0.384,phi4-mini
+0.1,random,1.684,0.73,0.533,0.3,0.62,0.384,phi4-mini
+0.1,lowest stated confidence,1.725,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.1,recalibrated risk,1.592,0.747,0.55,0.3,0.62,0.384,phi4-mini
+0.1,recalibrated risk + fair share,1.592,0.747,0.55,0.3,0.62,0.384,phi4-mini
+0.2,random,1.738,0.733,0.567,0.283,0.62,0.384,phi4-mini
+0.2,lowest stated confidence,1.726,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.2,recalibrated risk,1.534,0.763,0.583,0.283,0.62,0.384,phi4-mini
+0.2,recalibrated risk + fair share,1.534,0.763,0.583,0.283,0.62,0.384,phi4-mini
+0.3,random,1.715,0.73,0.517,0.333,0.62,0.384,phi4-mini
+0.3,lowest stated confidence,1.728,0.737,0.55,0.283,0.62,0.384,phi4-mini
+0.3,recalibrated risk,1.405,0.767,0.583,0.3,0.62,0.384,phi4-mini
+0.3,recalibrated risk + fair share,1.405,0.767,0.583,0.3,0.62,0.384,phi4-mini
+0.5,random,1.662,0.733,0.517,0.35,0.62,0.384,phi4-mini
+0.5,lowest stated confidence,1.608,0.743,0.55,0.317,0.62,0.384,phi4-mini
+0.5,recalibrated risk,1.463,0.76,0.533,0.367,0.62,0.384,phi4-mini
+0.5,recalibrated risk + fair share,1.463,0.76,0.533,0.367,0.62,0.384,phi4-mini
+0.0,random,1.764,0.687,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.0,lowest stated confidence,1.764,0.687,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.0,recalibrated risk,1.764,0.687,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.0,recalibrated risk + fair share,1.764,0.687,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.05,random,1.756,0.687,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.05,lowest stated confidence,1.77,0.687,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.05,recalibrated risk,1.669,0.693,0.517,0.3,0.553,0.351,qwen2.5:7b-instruct
+0.05,recalibrated risk + fair share,1.669,0.693,0.517,0.3,0.553,0.351,qwen2.5:7b-instruct
+0.1,random,1.756,0.693,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.1,lowest stated confidence,1.669,0.69,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.1,recalibrated risk,1.642,0.707,0.517,0.35,0.553,0.351,qwen2.5:7b-instruct
+0.1,recalibrated risk + fair share,1.642,0.707,0.517,0.35,0.553,0.351,qwen2.5:7b-instruct
+0.2,random,1.758,0.713,0.533,0.3,0.553,0.351,qwen2.5:7b-instruct
+0.2,lowest stated confidence,1.675,0.693,0.517,0.3,0.553,0.351,qwen2.5:7b-instruct
+0.2,recalibrated risk,1.591,0.713,0.533,0.333,0.553,0.351,qwen2.5:7b-instruct
+0.2,recalibrated risk + fair share,1.591,0.713,0.533,0.333,0.553,0.351,qwen2.5:7b-instruct
+0.3,random,1.673,0.693,0.517,0.283,0.553,0.351,qwen2.5:7b-instruct
+0.3,lowest stated confidence,1.669,0.703,0.517,0.35,0.553,0.351,qwen2.5:7b-instruct
+0.3,recalibrated risk,1.58,0.717,0.533,0.333,0.553,0.351,qwen2.5:7b-instruct
+0.3,recalibrated risk + fair share,1.58,0.717,0.533,0.333,0.553,0.351,qwen2.5:7b-instruct
+0.5,random,1.672,0.72,0.517,0.35,0.553,0.351,qwen2.5:7b-instruct
+0.5,lowest stated confidence,1.669,0.71,0.533,0.35,0.553,0.351,qwen2.5:7b-instruct
+0.5,recalibrated risk,1.558,0.727,0.517,0.35,0.553,0.351,qwen2.5:7b-instruct
+0.5,recalibrated risk + fair share,1.558,0.727,0.517,0.35,0.553,0.351,qwen2.5:7b-instruct
