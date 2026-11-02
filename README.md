@@ -12,11 +12,14 @@ Six language models (Qwen2.5-7B, Llama-3.1-8B, Gemma-4-E4B, Phi-4-mini, GPT-6 Lu
 |---|---|
 | `UTD24_LLM_inventory_calibration_mac.ipynb` | The full pipeline as a notebook: data, prompts, model calls, experiments E1-E5, tables and figures. |
 | `run_mac.py` | The same pipeline as a plain script (generated from the notebook by `nb2py.py`). |
+| `analysis.py` | The derived analyses in the paper (VDC collapse, feedback dynamics, trace-based decision confidence and its ablation, review with the TDC index, escalation, paired bootstrap intervals, the end-to-end pipeline, SAA-planner review). Reads the per-decision files and writes `utd24_runs/results/analysis*.csv`; about one minute, no model calls. |
 | `utd24_runs/cache/*.jsonl` | Every model response used in the paper, keyed by a hash of (model, prompt, temperature, seed). With the cache in place the pipeline re-runs **without Ollama or any API key**: every prompt the paper issued is answered from the cache, so the paper's numbers are reproduced as long as the decision sets are unchanged (they are also provided below). |
 | `utd24_runs/data/decisions_*_full.pkl` | The exact decision sets (series, split, 24-period history, realised demand, SAA quantile) for the three datasets. |
 | `utd24_runs/data/freshretail_panel.csv`, `practice_groups_imd.csv` | Derived FreshRetail panel and the NHS practice-to-IMD-quintile mapping. |
 | `utd24_runs/results/` | Per-decision outputs for every model and condition (`*_decisions_{basic,informed,agentic,quantile}_*.csv`), experiment tables (`*_E1_table.csv` ... `*_E5_quantile.csv`), and the derived analyses reported in the paper (`analysis2_confidence_collapse.csv` ... `analysis9_pipeline.csv`). |
 | `paper/` | Figure PDFs and `make_fig_ladder.py` (Figure 3). |
+
+Table-to-file map: Table 3 and D.x `*_E1_table.csv`; Table 4 `analysis2`; Table 5 and D.x `analysis4`, `analysis7`; Tables 6 and D.x `analysis3`; Table 7 `*_E1_table.csv` (PBS raw and thousands); Table 8 `*_E5_quantile.csv`, D.x `analysis8`; Table 9 and D.x `*_Table1_recalibration.csv`; Table 10 `*_E4_sweep.csv` plus `analysis5`; Table 11 `analysis9`; Appendix E `analysis10`, `analysis6`.
 
 Raw NHS and PBS files are not included (about 250 MB); the code downloads them from the NHSBSA open-data API and pbs.gov.au on first run. FreshRetailNet-50K is loaded from the Hugging Face hub.
 
@@ -27,6 +30,7 @@ pip install -r requirements.txt
 python3 run_mac.py nhs all          # also: pbs | freshretail
 python3 run_mac.py pbs all          # PBS in thousands (paper default); PBS_UNITS=raw for raw units
 python3 run_mac.py freshretail all
+python3 analysis.py                 # derived tables (analysis2 ... analysis10)
 ```
 
 Each run writes `utd24_runs/results/{dataset}_full_*.csv` and the figures. Every prompt is served from `utd24_runs/cache/`, so no model is called unless a prompt is new (for example after a change to the data or the prompt text). To run new models or prompts, install [Ollama](https://ollama.com) and pull `qwen2.5:7b-instruct llama3.1:8b gemma4 phi4-mini`, and put `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` in a `.env` file next to the script. API spend is capped by `LLM_BUDGET_USD` in the configuration block; the paper's total was USD 5.44.
