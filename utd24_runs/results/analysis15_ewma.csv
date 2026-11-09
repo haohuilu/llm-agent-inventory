@@ -1,0 +1,4 @@
+dataset,ewma_cov,ewma_cost,saa_cov
+nhs,0.945,0.696,0.842
+pbs_k,0.904,0.672,0.946
+freshretail,0.842,0.825,0.831
