@@ -5,7 +5,7 @@ A11  AUROC with site-block-bootstrap intervals and positives per cell; TDC varia
 A12  Reaction coefficient with site-clustered standard errors and a log specification.
 A13  Rolling-origin outcome correction (factor refitted each test period on the six most recent realised periods).
 A14  Review experiment on all panels with break-even review cost.
-A15  EWMA + residual-quantile rule.
+A15  EWMA + residual-quantile rule (shared test decisions).
 A16  Informed-treatment VDC AUROC and magnitude errors; VDC-coverage correlation after feedback; distinct VDC values.
 usage: python3 analysis_pom.py
 """
@@ -147,7 +147,8 @@ pd.DataFrame(rows).round(3).to_csv(f"{RES}/analysis14_review_all_panels.csv", in
 # ---------------------------------------------------------------- A15 EWMA rule
 rows = []
 for ds in DATASETS:
-    H_ = HIST[ds]; t = H_[H_.split == "test"]
+    t = load(ds, "basic", MODELS[0][0]); t = t[t.split == "test"]          # the shared test decisions
+    t = t.assign(history=HIST[ds].loc[t.decision_id, "history"].to_numpy())
     def ewma_order(h, alpha=0.3):
         h = np.asarray(h, float); lvl = h[0]; res = []
         for x in h[1:]:
@@ -203,3 +204,22 @@ for ds in DATASETS:
                          away=round(((np.sign(s.ch) == -np.sign(s.pe)) & (s.ch != 0)).mean(), 3), toward_given_change=round((np.sign(mv.ch) == np.sign(mv.pe)).mean(), 3),
                          raise_after_shortfall=round((sh.ch > 0).mean(), 3), lower_after_surplus=round((su.ch < 0).mean(), 3)))
 pd.DataFrame(rows).to_csv(f"{RES}/analysis18_adjustment_composition.csv", index=False); print("A18 done")
+
+# ---------------------------------------------------------------- A19 VDC AUROC by treatment, site-bootstrap intervals
+rng = np.random.default_rng(0); rows = []
+for ds in DATASETS:
+    for cond in ["basic", "informed", "agentic"]:
+        for m, s in MODELS:
+            d = load(ds, cond, m)
+            if d is None: continue
+            d = d[(d.split == "test") & d.confidence.notna()].reset_index(drop=True)
+            if d.confidence.nunique() < 2: rows.append(dict(dataset=ds, treatment=cond, model=s, auroc="const", lo="", hi="")); continue
+            y = (~d.covered).astype(int).to_numpy(); r = 1 - d.confidence.to_numpy()
+            k = pd.factorize(d.practice.astype(str) + "|" + d.chemical.astype(str))[0]; groups = [np.where(k == j)[0] for j in range(k.max() + 1)]
+            bs = []
+            for _ in range(1000):
+                ii = np.concatenate([groups[j] for j in rng.integers(0, len(groups), len(groups))])
+                if y[ii].min() != y[ii].max(): bs.append(roc_auc_score(y[ii], r[ii]))
+            lo, hi = np.percentile(bs, [2.5, 97.5])
+            rows.append(dict(dataset=ds, treatment=cond, model=s, auroc=f"{roc_auc_score(y, r):.2f}", lo=f"{lo:.2f}", hi=f"{hi:.2f}"))
+pd.DataFrame(rows).to_csv(f"{RES}/analysis19_vdc_auroc_ci_by_treatment.csv", index=False); print("A19 done")
