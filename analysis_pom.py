@@ -174,3 +174,32 @@ for ds in DATASETS + (["pbs"] if os.path.exists(f"{RES}/pbs_full_decisions_basic
             r[f"{cond}_cov"] = round(t.covered.mean(), 3); r[f"{cond}_cost"] = round(cost_ratio(t.order, t), 2)
         rows.append(r)
 pd.DataFrame(rows).to_csv(f"{RES}/analysis16_vdc_by_treatment.csv", index=False); print("A16 done")
+
+# ---------------------------------------------------------------- A17 learning: difference-in-differences with site bootstrap
+rows = []
+for ds in DATASETS:
+    for m, name in MODELS:
+        a = load(ds, "agentic", m).sort_values(["practice", "chemical", "month"]); b = load(ds, "basic", m).set_index("decision_id")
+        a["k"] = a.groupby(["practice", "chemical"]).cumcount(); a["site"] = a.practice + "|" + a.chemical
+        a["bcov"] = b.covered.reindex(a.decision_id).to_numpy(); a = a.dropna(subset=["bcov"]); a["bcov"] = a.bcov.astype(float); a["acov"] = a.covered.astype(float)
+        def did(x):
+            e, l = x[x.k < 6], x[x.k >= 6]; return (l.acov.mean() - e.acov.mean()) - (l.bcov.mean() - e.bcov.mean())
+        u = a.site.unique(); rng = np.random.default_rng(0); grp = {s: g for s, g in a.groupby("site")}
+        vals = [did(pd.concat([grp[s] for s in rng.choice(u, len(u), replace=True)])) for _ in range(1000)]
+        e, l = a[a.k < 6], a[a.k >= 6]
+        rows.append(dict(dataset=ds, model=name, agent_gain=round(l.acov.mean() - e.acov.mean(), 3), basic_gain=round(l.bcov.mean() - e.bcov.mean(), 3),
+                         did=round(did(a), 3), lo=round(np.percentile(vals, 2.5), 3), hi=round(np.percentile(vals, 97.5), 3)))
+pd.DataFrame(rows).to_csv(f"{RES}/analysis17_learning_did.csv", index=False); print("A17 done")
+
+# ---------------------------------------------------------------- A18 composition of order adjustments in the agent loop
+rows = []
+for ds in DATASETS:
+    for m, name in MODELS:
+        a = load(ds, "agentic", m).sort_values(["practice", "chemical", "month"]); g = a.groupby(["practice", "chemical"])
+        a["pe"] = (g.demand.shift(1) - g.order.shift(1)) / g.order.shift(1); a["ch"] = (a.order - g.order.shift(1)) / g.order.shift(1)
+        s = a.dropna(subset=["pe", "ch"]); s = s[(s.pe.abs() < 3) & (s.ch.abs() < 3)]
+        mv = s[s.ch != 0]; sh, su = s[s.pe > 0], s[s.pe < 0]
+        rows.append(dict(dataset=ds, model=name, unchanged=round((s.ch == 0).mean(), 3), toward=round(((np.sign(s.ch) == np.sign(s.pe)) & (s.ch != 0)).mean(), 3),
+                         away=round(((np.sign(s.ch) == -np.sign(s.pe)) & (s.ch != 0)).mean(), 3), toward_given_change=round((np.sign(mv.ch) == np.sign(mv.pe)).mean(), 3),
+                         raise_after_shortfall=round((sh.ch > 0).mean(), 3), lower_after_surplus=round((su.ch < 0).mean(), 3)))
+pd.DataFrame(rows).to_csv(f"{RES}/analysis18_adjustment_composition.csv", index=False); print("A18 done")

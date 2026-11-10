@@ -12,13 +12,13 @@ Six language models (Qwen2.5-7B, Llama-3.1-8B, Gemma-4-E4B, Phi-4-mini, GPT-6 Lu
 |---|---|
 | `UTD24_LLM_inventory_calibration_mac.ipynb` | The full pipeline as a notebook: data, prompts, model calls, experiments E1-E5, tables and figures. |
 | `run_mac.py` | The same pipeline as a plain script (generated from the notebook by `nb2py.py`). |
-| `analysis_pom.py` | Referee-round additions: AUROC site-bootstrap intervals, leave-site and leave-panel transfer, clustered reaction coefficients, rolling-origin correction, review on all panels with break-even cost, EWMA rule, VDC by treatment (`analysis11` ... `analysis16`). |
+| `analysis_pom.py` | Referee-round additions: AUROC site-bootstrap intervals, leave-site and leave-panel transfer, clustered reaction coefficients, rolling-origin correction, review on all panels with break-even cost, EWMA rule, VDC by treatment, difference-in-differences for learning, composition of order adjustments (`analysis11` ... `analysis18`). |
 | `analysis.py` | The derived analyses in the paper (VDC collapse, feedback dynamics, trace-based decision confidence and its ablation, review with the TDC index, escalation, paired bootstrap intervals, the end-to-end pipeline, SAA-planner review). Reads the per-decision files and writes `utd24_runs/results/analysis*.csv`; about one minute, no model calls. |
 | `utd24_runs/cache/*.jsonl` | Every model response used in the paper, keyed by a hash of (model, prompt, temperature, seed). With the cache in place the pipeline re-runs **without Ollama or any API key**: every prompt the paper issued is answered from the cache, so the paper's numbers are reproduced as long as the decision sets are unchanged (they are also provided below). |
 | `utd24_runs/data/decisions_*_full.pkl` | The exact decision sets (series, split, 24-period history, realised demand, SAA quantile) for the three datasets. |
 | `utd24_runs/data/freshretail_panel.csv`, `practice_groups_imd.csv` | Derived FreshRetail panel and the NHS practice-to-IMD-quintile mapping. |
 | `utd24_runs/results/` | Per-decision outputs for every model and condition (`*_decisions_{basic,informed,agentic,quantile}_*.csv`), experiment tables (`*_E1_table.csv` ... `*_E5_quantile.csv`), and the derived analyses reported in the paper (`analysis2_confidence_collapse.csv` ... `analysis9_pipeline.csv`). |
-| `paper/` | Figure PDFs and `make_fig_ladder.py` (Figure 3). |
+| `paper/` | Figure PDFs, `make_fig_ladder.py` (elicitation figure) and `make_fig_behaviour.py` (agent-behaviour figure). |
 
 Table-to-file map: Table 3 and D.x `*_E1_table.csv`; Table 4 `analysis2`; Table 5 and D.x `analysis4`, `analysis7`; Tables 6 and D.x `analysis3`; Table 7 `*_E1_table.csv` (PBS raw and thousands); Table 8 `*_E5_quantile.csv`, D.x `analysis8`; Table 9 and D.x `*_Table1_recalibration.csv`; Table 10 `*_E4_sweep.csv` plus `analysis5`; Table 11 `analysis9`; Appendix E `analysis10`, `analysis6`.
 
@@ -32,7 +32,7 @@ python3 run_mac.py nhs all          # also: pbs | freshretail
 python3 run_mac.py pbs all          # PBS in thousands (paper default); PBS_UNITS=raw for raw units
 python3 run_mac.py freshretail all
 python3 analysis.py                 # derived tables (analysis2 ... analysis10)
-python3 analysis_pom.py             # referee-round tables (analysis11 ... analysis16), about two minutes
+python3 analysis_pom.py             # referee-round tables (analysis11 ... analysis18), about three minutes
 ```
 
 Each run writes `utd24_runs/results/{dataset}_full_*.csv` and the figures. Every prompt is served from `utd24_runs/cache/`, so no model is called unless a prompt is new (for example after a change to the data or the prompt text). To run new models or prompts, install [Ollama](https://ollama.com) and pull `qwen2.5:7b-instruct llama3.1:8b gemma4 phi4-mini`, and put `OPENAI_API_KEY` / `ANTHROPIC_API_KEY` in a `.env` file next to the script. API spend is capped by `LLM_BUDGET_USD` in the configuration block; the paper's total was USD 5.44.
